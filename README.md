@@ -52,6 +52,100 @@ update db.json file with below tasks content
 }
 ```
 
+### 3. Action & reducer for tasks
+
+> npm i axios
+
+Create config file
+mkdir src/config
+
+touch src/config/api.js
+
+```
+export default {
+    API_BASE_URL: 'http://localhost:3001'
+}
+```
+
+mention api endpoint url here
+
+```
+
+mkdir src/store/task
+
+touch src/store/task/taskActionType.js
+
+define constant for Get_task here
+```
+
+export const GET_TASK = 'GET_TASK'
+
+```
+
+touch src/store/task/taskAction.js
+
+
+import axios
+import apiConfig
+import constant
+
+write async function getTask() to dispatch
+and axios to fetch in tasks from api endpoint
+
+```
+
+import axios from 'axios';
+import apiConfig from '../../config/api'
+import \* as taskActionType from './taskActionType';
+export const getTask = () => async (dispatch) => {
+try {
+const result = await axios.get(`${apiConfig.API_BASE_URL}/tasks`)
+
+        dispatch({
+            type: taskActionType.GET_TASK,
+            payload: result.data,
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+```
+
+
+
+> touch src/store/task/taskReducer.js
+
+initiate the state
+
+write taskReducer function
+```
+
+import \* as taskActionType from "./taskActionType"
+
+const initialTaskState = {
+taskList: []
+}
+
+const taskReducer = (state = initialTaskState,
+{ type, payload }) => {
+switch (type) {
+case taskActionType.GET_TASK:
+return {
+...state,
+taskList: payload
+}
+default:
+return state
+}
+}
+
+export default taskReducer
+
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -120,3 +214,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # todo-react-redux-hook
+```
