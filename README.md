@@ -2,6 +2,56 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### 1. install - for header
+
+npm i react-bootstrap bootstrap
+
+note # use ES7 code snippet extension in VS code
+
+import css from reactbootstrap in index.js
+
+component # header.js
+bring in navBar code snippet
+
+### 2. setup API server
+
+https://www.npmjs.com/package/json-server
+
+install with dependency
+npm i -D json-server
+
+bring in db.json code snippet
+
+under scripts
+"api": "json-server --port=3001 --watch db.json"
+
+npm run api //to list the api endpoint
+
+#test api endpoint in localhost
+update db.json file with below tasks content
+
+```
+{
+"tasks":[
+{
+"title":"shopping",
+"isCompleted": false,
+"id": 1
+},
+{
+"title":"Dinner",
+"isCompleted": false,
+"id": 2
+},
+{
+"title":"running",
+"isCompleted": true,
+"id": 3
+}
+]
+}
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -13,17 +63,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### 1. install - for header
-
-npm i react-bootstrap bootstrap
-
-note # use ES7 code snippet extension in VS code
-
-import css from reactbootstrap in index.js
-
-component # header.js
-bring in navBar code snippet
 
 ### `npm test`
 
