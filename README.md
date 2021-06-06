@@ -18,6 +18,13 @@ You will also see any lint errors in the console.
 
 npm i react-bootstrap bootstrap
 
+note # use ES7 code snippet extension in VS code
+
+import css from reactbootstrap in index.js
+
+component # header.js
+bring in navBar code snippet
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
