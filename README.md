@@ -356,14 +356,17 @@ listTask.js
 
 ### 9. ADD TASK , ACTION & Reducer
 
-taskActionType.js
-. Add constant for add task
+> taskActionType.js
 
-taskAction.js
-. create AddTask() action
-. pass taskData as param
-. axios.post(apiUrl, taskData)
+    . Add constant for add task
 
-taskReducer.js
-. initializeState > loading:false
-. taskList: [...state.taskList, payload]
+> taskAction.js
+
+    . create AddTask() action
+    . pass taskData as param
+    . axios.post(apiUrl, taskData)
+
+> taskReducer.js
+
+    . initializeState > loading:false
+    . taskList: [...state.taskList, payload]
