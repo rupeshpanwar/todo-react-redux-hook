@@ -21,3 +21,22 @@ export const getTask = () => async (dispatch) => {
         toast.error(error.message)
     }
 }
+
+export const addTask = (taskData) => async (dispatch) => {
+    try {
+        dispatch({ type: taskActionType.ADD_TASK_BEGINS })
+
+        const result = await axios.post(`${apiConfig.API_BASE_URL}/tasks`, tasksData)
+
+        dispatch({
+            type: taskActionType.ADD_TASK_SUCCESS,
+            payload: result.data
+        })
+
+    } catch (error) {
+        console.log('error', error)
+        dispatch({
+            type: taskActionType.ADD_TASK_FAILURE,
+        })
+    }
+}
