@@ -370,3 +370,22 @@ listTask.js
 
     . initializeState > loading:false
     . taskList: [...state.taskList, payload]
+
+### 10. Add Task UI
+
+> create AddTaskScreen.js component
+
+    .Add button in Container
+    .Add + icon from fontawesome
+    .Add Modal(vertical centered)
+    . useState to set props for modal
+    . add props to Modal, show, onHide
+    . onclick => setShowModal to true, rest set it to false
+    . fill modal with form component
+    . then from layout, horizontal form
+    . disable form validation , auto - completion
+    . add 2 button to submit n cancel the task in Modal
+
+> import AddTaskScreen into App.js
+
+    .import AddTaskScreen

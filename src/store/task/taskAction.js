@@ -26,7 +26,7 @@ export const addTask = (taskData) => async (dispatch) => {
     try {
         dispatch({ type: taskActionType.ADD_TASK_BEGINS })
 
-        const result = await axios.post(`${apiConfig.API_BASE_URL}/tasks`, tasksData)
+        const result = await axios.post(`${apiConfig.API_BASE_URL}/tasks`, taskData)
 
         dispatch({
             type: taskActionType.ADD_TASK_SUCCESS,
