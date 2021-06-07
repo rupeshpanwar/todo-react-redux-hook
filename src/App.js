@@ -1,9 +1,13 @@
 import Header from "./components/Header";
+import ListTask from "./components/ListTask";
 
 function App() {
   return (
-    <Header />
-  );
+    <>
+      <Header />
+      <ListTask />
+    </>
+  )
 }
 
 export default App;

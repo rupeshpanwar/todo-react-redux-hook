@@ -224,6 +224,52 @@ document.getElementById('root')
 ```
 
 
+### 4. Dispatch Get Task action
+touch src\components\ListTask.js
+
+call dispatch (getTask action)
+
+```
+
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { getTask } from '../store/task/taskAction'
+
+export default function ListTask() {
+const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getTask())
+    }, [])
+    return (
+        <div>
+
+        </div>
+    )
+
+}
+
+```
+#Now to bring into effect, include ListTask into App.js
+
+```
+
+import Header from "./components/Header";
+import ListTask from "./components/ListTask";
+
+function App() {
+return (
+<>
+
+<Header />
+<ListTask />
+</>
+)
+}
+
+export default App;
+
+```
 
 
 
