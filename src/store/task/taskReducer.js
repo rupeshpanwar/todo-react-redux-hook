@@ -2,15 +2,27 @@ import * as taskActionType from "./taskActionType"
 
 const initialTaskState = {
     taskList: [],
+    loading: false
 }
 const taskReducer = (
     state = initialTaskState,
     { type, payload }) => {
     switch (type) {
-        case taskActionType.GET_TASK:
+        case taskActionType.GET_TASK_BEGINS:
             return {
                 ...state,
-                taskList: payload
+                loading: true
+            }
+        case taskActionType.GET_TASK_SUCCESS:
+            return {
+                ...state,
+                taskList: payload,
+                loading: false
+            }
+        case taskActionType.GET_TASK_FAILURE:
+            return {
+                ...state,
+                loading: false
             }
         default:
             return state

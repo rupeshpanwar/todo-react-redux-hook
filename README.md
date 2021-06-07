@@ -96,7 +96,7 @@ and axios to fetch in tasks from api endpoint
 
 import axios from 'axios';
 import apiConfig from '../../config/api'
-import \* as taskActionType from './taskActionType';
+import as taskActionType from './taskActionType';
 export const getTask = () => async (dispatch) => {
 try {
 const result = await axios.get(`${apiConfig.API_BASE_URL}/tasks`)
@@ -123,7 +123,7 @@ initiate the state
 write taskReducer function
 ```
 
-import \* as taskActionType from "./taskActionType"
+import as taskActionType from "./taskActionType"
 
 const initialTaskState = {
 taskList: []
@@ -293,6 +293,61 @@ Look for trash icon
 append li in UI section
 
 wrap trash icon into Button
+
+
+
+
+
+### 6. Get Task Loader State
+
+define action type for begins success failure
+
+then
+> taskAction
+    . dispatch Begin action
+    . dispath success action
+    . dispatch failure action in catch block
+
+> taskReducer
+    . set loading : false
+    . accept all 3 tasks and change loading accordingly
+
+> another useSelector for get task loading
+    . getTaskLoadingSelector
+
+> list Task screen
+    . set condition for loading task
+
+> bring spinner from react-bootstrap for loading symbol
+
+
+
+
+### 7. Redux logger to log on console
+https://www.npmjs.com/package/redux-logger
+
+> npm i redux-logger
+
+Index.js
+ > import CreateLogger from redux-logger
+ > createLogger(
+     collapsed: true
+ )
+ > createStore(...next to thunk, createLogger)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
