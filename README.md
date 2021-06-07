@@ -145,6 +145,92 @@ return state
 export default taskReducer
 
 ```
+### 3. Create store
+Redux devtools
+
+Install Redux devtool for chrome
+
+> npm install redux react-redux redux-thunk redux-devtools-extension
+
+https://www.npmjs.com/package/redux-devtools-extension
+
+
+
+touch src/store/rootReducer.js # for combined reducer
+```
+
+import { combineReducers } from 'redux'
+import taskReducer from './task/taskReducer'
+
+const reducer = combineReducers({
+task: taskReducer
+})
+
+export default reducer
+
+```
+touch src/store/index.js
+
+```
+
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composewithDevTools } from 'redux-devtools-extension'
+import reducer from './rootReducer'
+
+const store = createStore(
+reducer,
+undefined,
+composewithDevTools(applyMiddleware(thunk))
+)
+
+export default store
+
+```
+switch to index.js # that host app
+```
+
+import { Provider } from 'react-redux'
+import store from './store';
+
+ReactDOM.render(
+<Provider store={store} >
+<App />
+</Provider>
+
+,
+document.getElementById('root')
+);
+
+```
+
+> now main index.js  to configure the store
+import provider from react-redux
+import store
+
+
+```
+
+import { Provider } from 'react-redux'
+import store from './store';
+
+ReactDOM.render(
+<Provider store={store} >
+<App />
+</Provider>,
+document.getElementById('root')
+);
+
+```
+
+
+
+
+
+
+
+
+
 
 ## Available Scripts
 

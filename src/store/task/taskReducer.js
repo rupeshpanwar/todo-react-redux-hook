@@ -1,10 +1,10 @@
 import * as taskActionType from "./taskActionType"
 
 const initialTaskState = {
-    taskList: []
+    taskList: [],
 }
-
-const taskReducer = (state = initialTaskState,
+const taskReducer = (
+    state = initialTaskState,
     { type, payload }) => {
     switch (type) {
         case taskActionType.GET_TASK:
