@@ -269,7 +269,6 @@ return (
 
 export default App;
 
-```
 ### 5. display task list in the UI
 
 ListGroup- with badges # bootstrap
@@ -278,82 +277,82 @@ ListTask.js
 
 > include code snippet from bootstrap
 
-bring in Grid => container #  react-bootstrap]
+bring in Grid => container # react-bootstrap]
 Row className= justify-content-center mt-5 and Col => to format
 
 > useSelector to listout the tasks in the above grid
-useDispatch, useSelector from react-redux
+> useDispatch, useSelector from react-redux
 
-> use Map function with  li to loop through the takss
+> use Map function with li to loop through the takss
 
 #seprate useSelector logic into different file #
 
 > index.html => mention fontawesome cdn
-Look for trash icon
-append li in UI section
+> Look for trash icon
+> append li in UI section
 
 wrap trash icon into Button
-
-
-
-
 
 ### 6. Get Task Loader State
 
 define action type for begins success failure
 
 then
+
 > taskAction
+
     . dispatch Begin action
     . dispath success action
     . dispatch failure action in catch block
 
 > taskReducer
+
     . set loading : false
     . accept all 3 tasks and change loading accordingly
 
 > another useSelector for get task loading
+
     . getTaskLoadingSelector
 
 > list Task screen
+
     . set condition for loading task
 
 > bring spinner from react-bootstrap for loading symbol
 
-
-
-
 ### 7. Redux logger to log on console
+
 https://www.npmjs.com/package/redux-logger
 
 > npm i redux-logger
 
 Index.js
- > import CreateLogger from redux-logger
- > createLogger(
+
+> import CreateLogger from redux-logger
+> createLogger(
+
      collapsed: true
- )
- > createStore(...next to thunk, createLogger)
 
+)
 
+> createStore(...next to thunk, createLogger)
 
+### 8. Toast UI to show sucess / error message
 
+https://www.npmjs.com/package/react-toastify
 
+npm i react-toastify
 
+main index.js
+. import toast #refer weblink
+. toast.configure()
 
+taskAction.js
+. import toast
+. catch { toast,error(error.msg)}
 
-
-
-
-
-
-
-
-
-
-
-
-
+listTask.js
+. add condition for Empty Task List
 
 ## Available Scripts
 
@@ -423,4 +422,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # todo-react-redux-hook
+
+```
+
 ```

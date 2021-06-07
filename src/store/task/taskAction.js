@@ -2,6 +2,7 @@ import axios from 'axios';
 import apiConfig from '../../config/api'
 import * as taskActionType from './taskActionType';
 
+import { toast } from 'react-toastify'
 export const getTask = () => async (dispatch) => {
 
     try {
@@ -17,5 +18,6 @@ export const getTask = () => async (dispatch) => {
     } catch (error) {
         console.log('error in dispatch', error)
         dispatch({ type: taskActionType.GET_TASK_FAILURE })
+        toast.error(error.message)
     }
 }

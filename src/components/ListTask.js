@@ -16,6 +16,7 @@ export default function ListTask() {
     }, [])
     return (
         <Container>
+            {!getTaskLoadingSelector && taskListSelector.length === 0 && <h1>Task List is empty</h1>}
             {getTaskLoadingSelector && <Spinner animation="border" className="page-loading" />}
             <Row className='justify-content-center mt-5'>
                 <Col>
