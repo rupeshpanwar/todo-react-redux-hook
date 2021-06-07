@@ -270,7 +270,29 @@ return (
 export default App;
 
 ```
+### 5. display task list in the UI
 
+ListGroup- with badges # bootstrap
+
+ListTask.js
+
+> include code snippet from bootstrap
+
+bring in Grid => container #  react-bootstrap]
+Row className= justify-content-center mt-5 and Col => to format
+
+> useSelector to listout the tasks in the above grid
+useDispatch, useSelector from react-redux
+
+> use Map function with  li to loop through the takss
+
+#seprate useSelector logic into different file #
+
+> index.html => mention fontawesome cdn
+Look for trash icon
+append li in UI section
+
+wrap trash icon into Button
 
 
 
