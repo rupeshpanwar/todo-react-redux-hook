@@ -64,3 +64,20 @@ export const deleteTask = (id) => async (dispatch) => {
     }
 
 }
+
+export const updateTask = (taskData) => async (dispatch) => {
+    try {
+        dispatch({ type: taskActionType.UPDATE_TASK_BEGINS });
+        const result = await axios.put(`${apiConfig.API_BASE_URL}/tasks/${taskData.id}`, taskData);
+        dispatch({
+            type: taskActionType.UPDATE_TASK_SUCCESS,
+            payload: result.data
+        });
+        toast.success('Task Updated Successfully!');
+    } catch (error) {
+        console.log(error);
+        dispatch({ type: taskActionType.UPDATE_TASK_FAILURE });
+        toast.error(error.message);
+        throw error;
+    }
+}

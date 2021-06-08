@@ -24,16 +24,6 @@
       "title": "task2",
       "isCompleted": true,
       "id": 5
-    },
-    {
-      "title": "task3",
-      "isCompleted": false,
-      "id": 6
-    },
-    {
-      "title": "task4",
-      "isCompleted": true,
-      "id": 7
     }
   ]
 }

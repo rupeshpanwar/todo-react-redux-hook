@@ -436,7 +436,8 @@ listTask.js
 ### 13. Delete Task
 
 > taskActionType.js
-> x add delete task action type
+
+    x add delete task action type
 
 > taskAction.js
 
@@ -453,7 +454,7 @@ listTask.js
 
 > ListTask.js
 
-     x add onClock handler on delete
+     x add onClick handler on delete
      x pass task as param
      x useSelector => to pick the state
      x dispatch deleteTask action
