@@ -56,7 +56,30 @@ const addTaskReducer = (state = initialTaskState, { type, payload }) => {
 
 }
 
+const deleteTaskReducer = (state = initialTaskState, { type, payload }) => {
+    switch (type) {
+        case taskActionType.DELETE_TASK_BEGINS:
+            return {
+                ...state,
+                loading: true
+            }
+        case taskActionType.DELETE_TASK_SUCCESS:
+            return {
+                taskList: state.taskList.filter(task => task.id !== payload),
+                loading: false
+            }
+        case taskActionType.DELETE_TASK_FAILURE:
+            return {
+                ...state,
+                loading: false
+            }
+        default:
+            return state
+    }
+}
+
 export {
     taskReducer,
-    addTaskReducer
+    addTaskReducer,
+    deleteTaskReducer
 }

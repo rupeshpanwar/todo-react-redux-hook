@@ -1,19 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Container, Row, Button, Spinner } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTask } from '../store/task/taskAction'
+import { getTask, deleteTask } from '../store/task/taskAction'
 
 
 export default function ListTask() {
     const dispatch = useDispatch()
 
+    const [deleteTaskId, setDeleteTaskId] = useState(null)
+
     const taskListSelector = useSelector((state) => state.task.taskList)
 
     const getTaskLoadingSelector = useSelector((state) => state.task.loading)
 
+    const loading = useSelector((state) => state.task.loading)
+
     useEffect(() => {
         dispatch(getTask())
     }, [])
+
+    const removeTaskHandler = (task) => {
+        setDeleteTaskId(task.id)
+        dispatch(
+            deleteTask(task.id)
+        )
+    }
+
     return (
         <Container>
             {!getTaskLoadingSelector && taskListSelector.length === 0 && <h1>Task List is empty</h1>}
@@ -25,8 +37,10 @@ export default function ListTask() {
                         (
                             <li className={`${task.isCompleted ? 'task-completed' : 'task-pending'} list-group-item d-flex justify-content-between align-item-center`} key={task.id} >
                                 {task.title}
-                                <Button Button size="sm" variant="outline-danger" >
+                                <Button Button size="sm" variant="outline-danger"
+                                    onClick={() => removeTaskHandler(task)}>
                                     <i className="fas fa-trash"></i>
+                                    {loading && (task.id === deleteTaskId) && <Spinner animation="border" size="sm" />}
                                 </Button>
                             </li>
                         )

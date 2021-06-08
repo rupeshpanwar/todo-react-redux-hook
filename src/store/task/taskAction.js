@@ -43,3 +43,24 @@ export const addTask = (taskData) => async (dispatch) => {
         throw error
     }
 }
+
+export const deleteTask = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: taskActionType.DELETE_TASK_BEGINS })
+
+        await axios.delete(`${apiConfig.API_BASE_URL}/tasks/${id}`)
+
+        dispatch({
+            type: taskActionType.DELETE_TASK_SUCCESS,
+            payload: id,
+        })
+        toast.success('Task deleted successfully')
+    } catch (error) {
+        console.log('error', error)
+        dispatch({ type: taskActionType.DELETE_TASK_FAILURE })
+        toast.error(error.message)
+        throw error
+
+    }
+
+}

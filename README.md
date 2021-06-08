@@ -432,3 +432,33 @@ listTask.js
 
     x add condition(as class) to change th task color
     x index.css , add styling for coloring
+
+### 13. Delete Task
+
+> taskActionType.js
+> x add delete task action type
+
+> taskAction.js
+
+    x add deleteTask(id)
+    x remove const result
+    x axios.delete(apiurl/${id})
+    x set payload : id
+    x set toaster message to sucessfully delete task
+
+> taskReducer.js
+
+     x create delete task reducer
+     x taskList: filter through the tasks and task.id !== payload
+
+> ListTask.js
+
+     x add onClock handler on delete
+     x pass task as param
+     x useSelector => to pick the state
+     x dispatch deleteTask action
+     x pass task.id as param
+     x add spinner next to delete button
+     x useState to track the id to be deleted, initial value is null
+     x removeTaskHandler( setTaskId = task.id)
+     x spinner section , add condition (task.id === deletedTaskId)
