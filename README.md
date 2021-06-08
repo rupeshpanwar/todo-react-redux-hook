@@ -417,7 +417,7 @@ listTask.js
 ## part3 add loader
 
     x add Spinner to Submit button
-    x addtaskSelector to check the status
+    x addtaskSelectorLoading to check the status
     x add a function to clear the state (Form) , setTaskName and setTaskStatus to initializeState
     x call this fucntion from OnHide n onSubmit
 
@@ -425,3 +425,10 @@ listTask.js
 
     x add toast message for sucess & below dispatch()
     x in catch block , throw error , this is to stop closing the modal
+
+### 12. Intuitive UI (coloring the tasks)
+
+> ListTask.js
+
+    x add condition(as class) to change th task color
+    x index.css , add styling for coloring

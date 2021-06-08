@@ -23,9 +23,9 @@ export default function ListTask() {
                     <ul className="list-group">
                         {taskListSelector.map(task =>
                         (
-                            <li className="list-group-item d-flex justify-content-between" key={task.id}>
+                            <li className={`${task.isCompleted ? 'task-completed' : 'task-pending'} list-group-item d-flex justify-content-between align-item-center`} key={task.id} >
                                 {task.title}
-                                <Button size="sm" variant="outline-danger">
+                                <Button Button size="sm" variant="outline-danger" >
                                     <i className="fas fa-trash"></i>
                                 </Button>
                             </li>
@@ -33,7 +33,7 @@ export default function ListTask() {
                         )}
                     </ul>
                 </Col>
-            </Row>
-        </Container>
+            </Row >
+        </Container >
     )
 }
