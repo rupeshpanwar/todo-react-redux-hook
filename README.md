@@ -389,3 +389,39 @@ listTask.js
 > import AddTaskScreen into App.js
 
     .import AddTaskScreen
+
+### 11. Dispatch Add Task
+
+> AddTaskScreen.js
+
+## part 1 define useState
+
+    . useState => to fetch taskname , taskstatus from Form
+    . on Task Name , form control , add OnChange Handler = {handleTaskNameChange}
+    . add value = {taskName}
+    . add handler function (event) for above => setTaskName(e.target.value)
+    . Repeast Same for Task Status Radio Button change handler , add handler ad FormGroup level
+    . Add value prop to each radio button
+    . on Submit button , add handleSubmit() then define the function (taskname, task status)
+
+## part2 dispatch function
+
+    x import useDispatch, useSelector from react-redux
+    x bring in action from taskAction
+    x initiate dispatch
+    x dispatch(addTask action on handleSubmit) => pass (title, isCompleted)
+    x add everything in try/catch block
+    x add toastUI in AddTask action block
+    x setShowModal(false) to close the modal
+
+## part3 add loader
+
+    x add Spinner to Submit button
+    x addtaskSelector to check the status
+    x add a function to clear the state (Form) , setTaskName and setTaskStatus to initializeState
+    x call this fucntion from OnHide n onSubmit
+
+> taskAction.js
+
+    x add toast message for sucess & below dispatch()
+    x in catch block , throw error , this is to stop closing the modal
